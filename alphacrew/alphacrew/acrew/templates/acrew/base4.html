@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1,shrink-to-fit=no">
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/temp.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/service.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/footer.css' %}">
+	<style>
+	{% block style %} {% endblock %}
+
+	</style>
+
+</head>
+
+<body>
+
+</body>
+{% block body_block %}
+{% endblock %}
+</html>

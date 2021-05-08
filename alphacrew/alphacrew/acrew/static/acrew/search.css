@@ -1,0 +1,125 @@
+.searchbar {
+    position: absolute;
+    top: 40%;
+    bottom: 50%;
+    left: 30%;
+    right: 50%;
+    max-width: 600px;
+    width: 100%;
+    background-color: white;
+    margin: 10px 0;
+    height: 55px;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 0.4rem;
+  }
+  .searchbar i {
+    text-align: center;
+    line-height: 55px;
+    color: #089e03;
+    transition: 0.5s;
+    font-size: 1.1rem;
+    right: 10px;
+  }
+  .searchbar input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .searchbar input::placeholder {
+    color: rgb(84, 87, 86);
+    font-weight: 500;
+  }
+th{
+      color: brown;
+border:black 1px solid;
+      font-weight: bolder;
+      font-size: 20px;
+
+      text-align: left;
+      padding: 20px 10px;
+  }
+  .head{
+      background-color: #75cf78;
+      text-align: center;
+
+  }
+ td{
+    border:black 1px solid;
+
+   padding: 8px;
+    text-align: center;
+}
+.co1
+{
+
+    background-color:#794a94;
+    color:#ece0eb;
+
+}
+
+.co3, .co5, .co7
+{
+    background-color:#4cb7d9;
+}
+
+.co2, .co4, .co6
+{
+    background-color:#e0ffff;
+}
+.section-info {
+    font-weight: bold;
+    text-align: center;
+  }
+  .section-info h1 {
+    font-size: 50px;
+  }
+header::before {
+  background: url("https://img.odishatv.in/wp-content/uploads/2020/07/Covid19-World-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 95vh;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.8;
+  overflow: hidden;
+}
+@media (max-width:768px){
+      #mytbl thead{
+           display:none;
+      }
+      #mytbl , #mytbl tbody ,#mytbl tr,#mytbl td{
+        display:block;
+        width:100%;
+
+      }
+      #mytbl{
+        margin-bottom: 15px;
+      }
+      #mytbl tboby tr td{
+              text-align: right;
+              padding-left: 50%;
+              position: relative;
+      }
+      #mytbl td::before{
+        content:attr(data-model-name);
+        position:absolute;
+        left:0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        font-size: 14px;
+        text-align: left;
+      }

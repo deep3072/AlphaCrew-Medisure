@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stomachache</title>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/service.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/footer2.css' %}">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+    <link rel="shortcut icon" href="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" type="image/png">
+     <style>
+        .text {
+    color: white;
+    margin: auto;
+    max-width: 800px;
+  }
+        .text h4 {
+    font-size: 100px;
+    margin: 10px 10px;
+  }
+  .tips{
+      color:black;
+      background-color: #72ed74;
+  }
+   div.transbox {
+
+       padding: 10px;
+  margin:10px 30px;
+  border-radius: 30px;
+  background-color: #4fd355;
+  border: 1px solid black;
+  opacity: 0.7;
+}
+
+div.transbox dl {
+
+  font-weight:lighter;
+  color: #000000;
+}
+.section-info {
+    font-weight: bold;
+    text-align: center;
+  }
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .heading hr {
+    width: 25%;
+    height: 2px;
+    color: black;
+    background-color: black;
+    margin: 10px;
+    border: none;
+  }
+  .section-info h1 {
+    font-size: 50px;
+  }
+    </style>
+</head>
+<body>
+     <header
+      style="
+        background: url(https://revistasaludcoomeva.co/wp-content/uploads/2019/01/dolor-estomago.jpg);
+        width: 100%;
+        height: 90vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+
+      "
+    >
+      <nav>
+      <div class="logo"><img src="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" alt="logo"></div>
+      <div class="menu">
+        {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+        <div class="dropdown">
+          <button class="dropbtn">Emergency <i class="fas fa-phone" style="margin-left: 5px;"></i></button>
+          <div class="dropdown-content">
+             <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+  </header>
+  <section id="sidenav">
+      <img id="menubar" src="https://i.ibb.co/k5Dyz1b/download.png" alt="" />
+      {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+    <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+    </section>
+     <div class="section-info">
+      <div class="heading" style="padding-top: 40px;">
+        <hr />
+        <h1>Symptoms</h1>
+
+        <hr />
+
+      </div>
+      </div>
+    <div class="transbox">
+      <br><dl>&rarr;Pain in stomach</dl>
+      <br><dl>&rarr;Sudden pain in right side.</dl>
+              <br><dl>&rarr;Ongoing cramps.</dl>
+        <br><dl> &rarr;Bloating</dl>
+        <br><dl>&rarr;Diarrhoea.</dl>
+        <br><dl>&rarr;Feeling bloated.</dl>
+        <br><dl>&rarr;Farting a lot or not a little.</dl>
+        <br><dl>&rarr;Feeling sick and vomiting.</dl>
+
+    </div>
+    <div class="section-info">
+      <div class="heading" style="padding-top: 40px;">
+        <hr />
+        <h1>Prevention Tricks</h1>
+
+        <hr />
+
+      </div>
+      </div>
+    <div class="transbox">
+      <br><dl>&rarr;Take proper drugs.</dl>
+      <br><dl>&rarr;Drinking water.</dl>
+        <br><dl>&rarr;Avoid lying down.</dl>
+        <br><dl> &rarr;Take ginger and mint.</dl>
+
+        <br><dl>&rarr;Use heating bag.</dl>
+        <br><dl>&rarr;Avoid smoking or drinking alcohol.</dl>
+        <br><dl>&rarr;Avoid difficult-to-digest foods.</dl>
+    </div>
+    <section id="footer">
+    <h2>
+      <span>&copy;</span> Developed By drd_success with ❤ <br>|
+      <span><i class="fas fa-envelope"></i></span> drd_success@hackathon.com
+    </h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=100008267590482" target="_blank">
+        <i class="fa fa-2x fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/dalal.dhruv_4/" target="_blank">
+        <i class="fa fa-2x fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/dhruv-dalal-087658198/" target="_blank">
+        <i class="fa fa-2x fa-linkedin"></i></a>
+    </div>
+  </section>
+<script>
+      var menu = document.getElementById("menubar");
+      var sidenav = document.getElementById("sidenav");
+      sidenav.style.width = "0px";
+      menu.onclick = function () {
+        if (sidenav.style.width == "0px") {
+          sidenav.style.width = "250px";
+          menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+        } else {
+          sidenav.style.width = "0px";
+          menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+        }
+      };
+    </script>
+</body>
+</html>

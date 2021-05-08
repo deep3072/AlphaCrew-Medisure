@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'acrew/style.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'acrew/media.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'acrew/search.css' %}">
+<link rel="shortcut icon" href="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" type="image/png">
+      <link rel="stylesheet" type="text/css" href="{% static 'acrew/footer2.css' %}">
+       <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+.edu-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+.edu-box {
+    cursor:pointer;
+  flex-basis: 20%;
+  text-align: center;
+  box-shadow: 2px 3px 5px grey;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(233, 226, 218);
+  border-radius:20px;
+}
+.edu-box:hover {
+  background: #3e8e41;
+  color: white;
+  transition: 0.4s;
+  transform: scale(1.1);
+}
+
+.edu-box ul li {
+    list-style: none;
+  }
+
+</style>
+    <title>COVID-19 Updates</title>
+  </head>
+  <body>
+  <header style="width: 100%;
+    height: 100vh;
+    display:flex;
+    flex-wrap:wrap;">
+
+    <nav>
+      <div class="logo"><img src="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" alt="logo"></div>
+      <div class="menu">
+        {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+        <div class="dropdown">
+          <button class="dropbtn">Emergency <i class="fas fa-phone" style="margin-left: 5px;"></i></button>
+          <div class="dropdown-content">
+            <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+<div class="searchbar">
+      <i class="fas fa-3x fa-search" style="margin-left: 5px"></i>
+      <input type="text" name="search" id="myInput" placeholder="Search Country" onkeyup="search();">
+    </div>
+  </header>
+  <script>
+    var menu = document.getElementById("menubar");
+    var sidenav = document.getElementById("sidenav");
+    sidenav.style.width = "0px";
+    menu.onclick = function () {
+      if (sidenav.style.width == "0px") {
+        sidenav.style.width = "250px";
+        menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+      } else {
+        sidenav.style.width = "0px";
+        menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+      }
+    };
+  </script>
+  <section id="sidenav">
+      <img id="menubar" src="https://i.ibb.co/k5Dyz1b/download.png" alt="" />
+      {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+    <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+    </section>
+
+     <section id="tbl">
+       <div class="section-info">
+         <div class="heading">
+
+           <h1>Corona Updates!😷🦠</h1>
+
+      </div>
+      <table id="mytbl" style="border-collapse: collapse;">
+        <thead >
+          <tr class="head" >
+            <th style="width: 17%;" class="ctr">Country</th>
+            <th style="width: 17%;" class="NC">NewConfirmed</th>
+            <th style="width: 17%;" class="TC">TotalConfirmed</th>
+            <th style="width: 17%;" class="ND">NewDeaths</th>
+            <th style="width: 17%;" class="TD">TotalDeaths</th>
+            <th style="width: 17%;" class="NR">NewRecovered</th>
+            <th style="width: 17%;" class="TR">TotalRecovered</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in responses.Countries %}
+          <tr class="even" >
+            <td class="ctr co1" data-model-name="Country">
+              {{i.Country}} </td>
+            <td class="NC co2" data-model-name="NewConfirmed">
+              {{i.NewConfirmed}} </td>
+            <td class="TC co3" data-model-name="TotalConfirmed">
+              {{i.TotalConfirmed}} </td>
+            <td class="ND co4" data-model-name="NewDeaths">
+              {{i.NewDeaths}} </td>
+            <td class="TD co5" data-model-name="TotalDeaths">
+              {{i.TotalDeaths}} </td>
+            <td class="NR co6" data-model-name="NewRecovered">
+              {{i.NewRecovered}} </td>
+            <td class="TR co7" data-model-name="TotalRecovered">
+              {{i.TotalRecovered}} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+         <div class="edu-row">
+      <a href="https://selfregistration.cowin.gov.in/" class="edu-box" style="text-decoration: none;" target="_blank">
+      <div>
+
+        <h2>Register yourself for Vaccination</h2>
+
+      </div></a>
+      <a href="https://api.whatsapp.com/send/?phone=12345178991&text=Hey+IntroBot%21&app_absent=0" class="edu-box" style="text-decoration: none; " target="_blank" >
+      <div>
+
+        <h2>Check bed availability in nearby hospitals</h2>
+
+      </div>
+      </a>
+      <a href="/acrew/corona" class="edu-box" style="text-decoration: none;">
+      <div>
+
+        <h2>Corona Prevention Tips</h2>
+        <p></p>
+      </div>
+      </a>
+    </div>
+</div>
+    </div>
+     </section>
+  <section id="footer">
+    <h2>
+      <span>&copy;</span> Developed By drd_success with ❤ <br>|
+      <span><i class="fas fa-envelope"></i></span> drd_success@hackathon.com
+    </h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fa fa-2x fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="fa fa-2x fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank">
+        <i class="fa fa-2x fa-linkedin"></i></a>
+    </div>
+  </section>
+  <script>
+      var menu = document.getElementById("menubar");
+      var sidenav = document.getElementById("sidenav");
+      sidenav.style.width = "0px";
+      menu.onclick = function () {
+        if (sidenav.style.width == "0px") {
+          sidenav.style.width = "250px";
+          menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+        } else {
+          sidenav.style.width = "0px";
+          menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+        }
+      };
+    </script>
+   <script>
+    const search = () => {
+      let body = document.getElementsByTagName("tbody");
+      let filter = document.getElementById("myInput").value.toUpperCase();
+      let mytbl = document.getElementById("mytbl");
+      let tr = mytbl.getElementsByTagName("tr");
+      for (var i = 0; i < tr.length; i++) {
+        let td1 = tr[i].getElementsByTagName("td")[0];
+        if (td1) {
+          let textvalue = td1.textContent || td1.innerHTML;
+          if (textvalue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+
+          }
+          else {
+
+            tr[i].style.display = "none";
+          }
+        }
+      }
+
+    }
+  </script>
+  </body>
+</html>

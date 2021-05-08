@@ -1,0 +1,46 @@
+.social-icons {
+    margin: 5px 10px;
+    margin-left: 150px;
+    display: flex;
+    flex-basis: 30%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: black;
+  }
+  #footer h2 {
+    color: white;
+  }
+  .social-icons a {
+    height: 50px;
+    width: 50px;
+    border-radius: 40px;
+    background-color: #f5f6fa;
+    text-align: center;
+    margin: 10px;
+   margin-left: 50px;
+      line-height: 60px;
+      box-shadow: 1px 4px 2px 2px #dcdde1;
+    }
+    .social-icons a i {
+      transition: all 0.3s linear;
+    }
+    .social-icons a:hover i {
+      transform: scale(1.2);
+    }
+    .fa-facebook {
+      background: #3b5998;
+      color: white;
+    }
+    .fa-instagram {
+      color: #e84393;
+    }
+    .fa-linkedin {
+      color: #0097e6;
+    }

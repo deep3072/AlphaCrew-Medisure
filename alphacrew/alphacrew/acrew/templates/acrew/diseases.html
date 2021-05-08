@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/media.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/diseases1.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/footer2.css' %}">
+  <link rel="shortcut icon" href="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" type="image/png">
+  <title>Search</title>
+</head>
+
+<body>
+  <header style="
+        width: 100%;
+        height: 70vh;
+        background: url(../img/about.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      ">
+    <nav>
+      <div class="logo"><img src="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" alt="logo"></div>
+      <div class="menu">
+        {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+
+        {% endif %}
+        <div class="dropdown">
+          <button class="dropbtn">Emergency <i class="fas fa-phone" style="margin-left: 5px;"></i></button>
+          <div class="dropdown-content">
+            <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <section id="sidenav">
+      <img id="menubar" src="https://i.ibb.co/k5Dyz1b/download.png" alt="" />
+      {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+    <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+    </section>
+    <div class="searchbar">
+      <i class="fas fa-3x fa-search" style="margin-left: 5px"></i>
+      <input type="text" name="search" id="myInput" placeholder="Search Diseases or symptoms" onkeyup="search();">
+    </div>
+  </header>
+
+  <script>
+    var menu = document.getElementById("menubar");
+    var sidenav = document.getElementById("sidenav");
+    sidenav.style.width = "0px";
+    menu.onclick = function () {
+      if (sidenav.style.width == "0px") {
+        sidenav.style.width = "250px";
+        menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+      } else {
+        sidenav.style.width = "0px";
+        menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+      }
+    };
+  </script>
+  <section id="tbl">
+    <div class="section-info">
+      <div class="heading">
+        <hr />
+        <h1>Table Of Diseases</h1>
+        <hr />
+      </div>
+      <table id="mytbl" style="border-collapse: collapse;">
+        <thead>
+          <tr class="head">
+            <th style="width: 20%;" class="title">Disease/ Condition</th>
+            <th style="width: 20%;" class="TBP">Transmission based Precautions</th>
+            <th style="width: 20%;" class="IM">Infective Material</th>
+            <th style="width: 20%;" class="DP">Duration of Precautions</th>
+            <th style="width: 20%;" class="ISR">Isolation in single room</th>
+            <th style="width: 20%;" class="ISR">Comment</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Abscess (Major)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Pus/discharge          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Pus not contained with an adequate dressing or abscess is draining          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Actinomycosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Dental plaque/tonsillar crypts          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Irregular           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (while infectious)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Adenovirus          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions and faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Cohorting may be considered during increased incidence/outbreak          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Amebiasis (amoebiasis)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Those at risk live in areas of poor sanitation, crowding, travellers to endemic areas and persons partaking in oral-anal sexual activity          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Anthrax          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Lesion fluid          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Ascariasis (roundworm)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            If available           </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Aspergillosis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Decaying vegetation such as piles of leaves or compost piles          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Botulism          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Contaminated food          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Bronchiolitis (infants)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Various aetiological agents such as RSV, Influenza, Parainfluenza and Adenoviruses have been associated with this illness           </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Brucellosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Purulent discharge          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if draining lesions present)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Burns          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Wound/lesion discharge          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until wounds heel           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if draining lesions present)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Positive pressure isolation required for 2nd and 3rd degree burns           </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Campylobacter enteritis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Candidiasis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Mouth, skin, genital secretions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Contact precautions required for neonates          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Cat Scratch Disease           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+                      </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Cellulitis (uncontrolled discharge)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Pus/discharge           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            24hrs after effective treatment          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Chlamydial infections (STD)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Genetial secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Clostridium difficile           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic with formed stools          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Clostridium perfringens (foodborne)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Food          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Conjunctivitis (bacterial)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Purulent exudate           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Conjunctivitis (viral or aetiology unknown)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Purulent exudate           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Coronavirus           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Same precautions required for MERS-CoV          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Creutzfeltd-Jakob Disease (CJD)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood, brain tissue, spinal fluid          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Some waste will require disposal as cytotoxic waste           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Croup          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Cryptosporidiosis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (whilst symptomatic)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Diphtheria          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions/lesions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 2 cultures from skin nose and throat/skin lesions, taken 24hrs apart after cessation of antimicrobial therapy are negative for Corynebacterium diphtheriae          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Ebola-Marburg Viral Diseases           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood and secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            E-coli Diarrhoeal Diseases           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease; infected persons should not be employed to handle food or provide care until 2 successive negative faecal samples are obtained (collected 24hours apart and not sooner than 48hours after the last dose of antimicrobials          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Enteroviral infection (infants and young children)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Enteroviral infection (adults)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Erysipelas          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Discharge from infected lesions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            For 24hours after start of effective treatment           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Causative organisms may include Group A Streptococcus, Staphylococcus aureus and other Groups of Streptococci           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Gastroenteritis (Norovirus)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Vomitus and Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 48hours asymptomatic and stools return to normal          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+            Cohorting may be considered during increased incidence/outbreak          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Gastroenteritis (Viral)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Vomitus and Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 48hours asymptomatic and stools return to normal          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Giardiasis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Glandular Fever           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Gonococcal opthalmia neonatorum           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Maternal cervix          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after administration of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Gonorrhoea           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Discharge           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Haemophilus influenza           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if epiglottitis, menengitis or septicaemia)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Hand Foot and Mouth          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces or respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes            </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Helicobacter Pylori           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Variable (inc. faeces and water)          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Hepatitis A          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces            </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            First 2 weeks of illness but no more than 1 week after onset of jaundice (except in a Neonatal ICU setting where prolonged precautions must be considered)          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Hepatitis B          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infective bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if risk of bleeding)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Hepatitis C          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infective bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if risk of bleeding)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Hepatitis D          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infective bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if risk of bleeding)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Hepatitis E          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Herpesvirus          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Saliva or genital secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (for neonates and adults with mucocutaneous, disseminated or primary severe)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            HIV and AIDS          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood and bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No (unless bleeding)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Life long infection           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Human papillomavirus infection           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infected lesion          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Impetigo           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Lesions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Influenza          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Lassa Fever          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood, bodily fluids and respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+            Hazard Group 4 pathogen - transfer to local ID unit          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Legionellosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Leprosy          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Leptospirosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood and urine           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Listeriosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No (unless neonates)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Lyme Disease           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Tic          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Malaria           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Marburg Virus          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood, bodily fluids and respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Negative pressure - transfer to local ID unit          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Measles           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Negative pressure; notifable disease;           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Meningitis (meningococcal)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+            Prophlaxis required for close contacts          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Meningitis (pneumococcal)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Meningitis (viral)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Depends on Causative Agent          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Variable          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Depends on causative agent          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Depends on causative agent          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Mumps          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            For 7days before and 9days after onset of swelling           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Necrotising fasciitis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Secretions/exudates          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Depending on microorganism e.g. Group A streptococcus          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Ophthalmia neonatorum          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Purulent discharge          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Orf           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly drainage fluid          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Parvovirus B19 (erythema infectiosum)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Parvovirus B19 (associated transient aplastic crisis or red cell crisis)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood and body products          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            For 7days after the onset of the transient aplastic or red cell crisis          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Parvovirus B19 (immunocompromised patient with chronic parvovirus infection)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood and body products          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Pertussis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 5days after the start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Plague (bubonic)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Pus          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Plague (pneumonic)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Sputum, secretions/excretions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 3days after the start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Poliomyelitis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces and respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if symptomatic with diarrhoea)           </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Psittacosis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if coughing, otherwise No)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Q Fever           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 7days after the onset of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Quinsy (Strep A pharyngitis)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after the start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Rabies           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Animal bite          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Respiratory Syncytial Virus (RSV)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Consider cohorting if insufficient single rooms          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Ringworm          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infected lesions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Rotavirus           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces and possibly respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Rubella           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 7days after the onset of rash          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes           </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Salmonellosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if symptomatic)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            SARS (Severe Acute Respiratory Syndrome)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions and faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes            </td>
+                  <td  class="views-field views-field-field-comments">
+            Negative pressure isolation           </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Scabies           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infested area          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after application of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Scarlet fever          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions            </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Shigellosis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if symptomatic)          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Smallpox (even if only suspected)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions and blood/bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease, negative pressure isolation, transfer to local ID unit          </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Staphlococcus scalded skin syndrome (Ritter&#039;s disease)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Infected lesions          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of illness          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Streptococcus Group A (major wound or burn)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Exudate/pus          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Streptococcus Group A (endometritis, puerperal sepsis)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Vaginal discharge          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Streptococcus Group A (pneumonia)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Streptococcus Group A (scarlet fever)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Droplet          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 24hours after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Streptococcus Group B (Neonatal Unit only)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possible faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Syphilis          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Lesion secretions and blood          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+            Skin lesions of primary and secondary syphilis may be highly infective          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Tapeworm          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly faeces          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Tetanus          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            No direct person to person transmission           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Threadworm          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Mucous secretion from worm          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Tonsillitis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne and Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Secretions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Toxoplasmosis           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Possibly bodily fluids          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Tuberculosis (pulmonary)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Sputum or pus          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until 2weeks after start of effective therapy          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes          </td>
+                  <td  class="views-field views-field-field-comments">
+            Negative pressure isolation; notifiable disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Tuberculosis (non-pulmonary)          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+                      </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+                      </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            No          </td>
+                  <td  class="views-field views-field-field-comments">
+                      </td>
+              </tr>
+          <tr  class="even">
+                  <td  class="views-field views-field-title">
+            Typhoid Fever and Paratyphoid Fevers          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Contact          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Faeces           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until asymptomatic           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if symptomatic)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="odd">
+                  <td  class="views-field views-field-title">
+            Varicella/Herpes Zoster           </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Airborne          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Respiratory secretions or vesicle fluid of skin lesions           </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Until all lesions are crusted over          </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (while infectious)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-title">
+            Yellow Fever          </td>
+                  <td  class="views-field views-field-field-transmission-based-precaut">
+            Standard          </td>
+                  <td  class="views-field views-field-field-infective-material">
+            Blood          </td>
+                  <td  class="views-field views-field-field-duration-of-precautions">
+            Duration of hospitalisation           </td>
+                  <td  class="views-field views-field-field-isolation-in-single-room">
+            Yes (if actively bleeding)          </td>
+                  <td  class="views-field views-field-field-comments">
+            Notifiable Disease          </td>
+              </tr>
+        </tbody>
+
+      </table>
+    </div>
+
+  </section>
+
+  <script>
+    //let mytbl=document.getElementById("mytbl");
+    //let tr= mytbl.getElementsByTagName("tr");
+    //tr.style.display="none";
+    const search = () => {
+      let body = document.getElementsByTagName("tbody");
+      //body.style.display="";
+      let filter = document.getElementById("myInput").value.toUpperCase();
+      let mytbl = document.getElementById("mytbl");
+      let tr = mytbl.getElementsByTagName("tr");
+      //mytbl.style.display="none";
+      for (var i = 0; i < tr.length; i++) {
+        let td1 = tr[i].getElementsByTagName("td")[0];
+        let td2 = tr[i].getElementsByTagName("td")[1];
+        if (td1 || td2) {
+          let textvalue = td1.textContent || td1.innerHTML;
+          let textvalue2 = td2.textContent || td2.innerHTML;
+          if (textvalue.toUpperCase().indexOf(filter) > -1 || textvalue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+
+          }
+          else {
+
+            tr[i].style.display = "none";
+          }
+        }
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>

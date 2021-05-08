@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    {% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'acrew/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'acrew/about.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'acrew/media.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'acrew/footer2.css' %}">
+    <link rel="shortcut icon" href="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" type="image/png">
+    <title>About Us</title>
+  </head>
+  <body>
+    <div id="loading"></div>
+  <header style="width: 100%;
+        height: 60vh;
+        background: url(https://i.ibb.co/SnnTz0H/about.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;">
+
+    <nav>
+      <div class="logo"><img src="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" alt="logo"></div>
+      <div class="menu">
+        {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+        <div class="dropdown">
+          <button class="dropbtn">Emergency <i class="fas fa-phone" style="margin-left: 5px;"></i></button>
+          <div class="dropdown-content">
+            <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<div class="text">
+        <h2>About Us</h2>
+        <hr/>
+      </div>
+
+
+  </header>
+  <section id="sidenav">
+      <img id="menubar" src="https://i.ibb.co/k5Dyz1b/download.png" alt="" />
+      {% if user.is_authenticated %}
+
+		        <a href="/">{{user.username}}</a>
+			    <a href="{% url 'acrew:search' %}">Search</a>
+                <a href="{% url 'acrew:contact' %}">Contact Us</a>
+                <a href="{% url 'acrew:about' %}">About Us</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+                <a href="{% url 'acrew:user_login' %}">SignIn/SignUp</a>
+
+        {% endif %}
+    <a href="/acrew/search">COVID-19</a>
+            <a href="/acrew/hos">NearBy</a>
+            <a href="/acrew/symptoms">Common Diseases</a>
+    </section>
+    <section id="about">
+      <div class="section-info">
+        <div class="heading">
+          <hr />
+          <h1>Know more</h1>
+          <hr />
+        </div>
+
+        <p>Who we are?🤔</p>
+      </div>
+      <div class="about-row0">
+        <div class="about-right0">
+          <p class="p1">About Alphacrew Medisure</p>
+          <br />
+          <p class="p2">
+            This is one platform in which you can just type the disease name and find the medicine name, symptoms. You can also find the near by medicine shop
+          </p>
+        </div>
+        <div class="about-left0">
+          <img src="https://i.ibb.co/Pw90XZL/Free-Sample-By-Wix-1-removebg-preview.png" alt="" />
+        </div>
+      </div>
+      <div class="about-row1">
+        <div class="about-left1">
+          <img src="https://i.ibb.co/WvhKM40/clipart1572190.png" alt="" />
+        </div>
+        <div class="about-right1">
+          <p class="p1">Our Motto</p>
+          <br />
+          <p class="p2">
+           In the era of technology, we are totally depended on internet. We don't have time for our health. So our main Motto is how you can take care of health with the help of this platform.
+          </p>
+        </div>
+      </div>
+      <div class="about-row0">
+        <div class="about-right0">
+          <p class="p1">24×7 Support</p>
+          <br />
+          <p class="p2">
+            Nowdays, internet connection are 24×7 available but some  hospitals and chemist shops are not. So by this, you can find the medicine or symptoms 24×7 with searching our website. Also you can find medicine shop which is providing services 24×7.
+          </p>
+        </div>
+        <div class="about-left0">
+          <img src="https://i.ibb.co/YBx8Cqv/klipartz-com.png" alt="" />
+        </div>
+      </div>
+      <div class="about-row1">
+        <div class="about-left1">
+          <img src="https://i.ibb.co/M6ND2Lm/klipartz-com-1.png" alt="" />
+        </div>
+        <div class="about-right1">
+          <p class="p1">Our Core-Team</p>
+          <br />
+          <p class="p2">
+           We team drd_success who built this project. Our main idea is to take care of your health. One can also follow our team through our LinkedIn, Facebook or Instagram account.
+          </p>
+        </div>
+      </div>
+      <div class="about-row0 ram">
+        <div class="about-right0">
+          <p class="p1">Our Collaboration with Different Pharma Industries</p>
+          <div class="com-row">
+            <img src="https://i.ibb.co/r3fTSH1/cipla-logo.png" alt="" srcset="">
+<img src="https://i.ibb.co/dbSPYfQ/divis-logo.png" alt="" srcset="">
+<img src="https://i.ibb.co/ysp1MVR/dr-Reddys-headerlogo.png" alt="" srcset="">
+<img src="https://i.ibb.co/16QPDYJ/torrent-logo.png" alt="" srcset="">
+          </div>
+        </div>
+        <div class="about-left0">
+          <img src="https://i.ibb.co/jhkjqsc/klipartz-com-2.png" alt="" />
+        </div>
+      </div>
+      <div class="about-row1">
+        <div class="about-left1">
+          <img src="https://i.ibb.co/23Mtgc6/klipartz-com-4.png" alt="" />
+        </div>
+        <div class="about-right1">
+          <p class="p1">Connect with Us</p>
+          <br />
+          <p class="p2">
+            One can connect with us by signing up on our platform and begin the journey with our community. Also one can get more information and connect with us by our social media handles.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="footer">
+      <h2>
+        <span>&copy;</span> Developed By drd_success with ❤ <br>|
+        <span><i class="fas fa-envelope"></i></span> drd_success@hackathon.com
+      </h2>
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+        >
+          <i class="fa fa-2x fa-facebook-f"></i
+        ></a>
+        <a href="https://www.instagram.com/" target="_blank">
+           <i class="fa fa-2x fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/"
+          target="_blank"
+        >
+          <i class="fa fa-2x fa-linkedin"></i
+        ></a>
+      </div>
+    </section>
+
+    <script>
+      var menu = document.getElementById("menubar");
+      var sidenav = document.getElementById("sidenav");
+      sidenav.style.width = "0px";
+      menu.onclick = function () {
+        if (sidenav.style.width == "0px") {
+          sidenav.style.width = "250px";
+          menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+        } else {
+          sidenav.style.width = "0px";
+          menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+        }
+      };
+    </script>
+  </body>
+</html>

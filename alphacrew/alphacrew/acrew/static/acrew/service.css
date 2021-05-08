@@ -1,0 +1,55 @@
+.section-info {
+    font-weight: bold;
+    text-align: center;
+  }
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .heading hr {
+    width: 25%;
+    height: 2px;
+    color: black;
+    background-color: black;
+    margin: 10px;
+    border: none;
+  }
+  .section-info h1 {
+    font-size: 50px;
+  }
+  .section-info p {
+    font-size: 25px;
+    color: black;
+  }
+  #edu{
+
+    padding: 100px 50px;
+}
+.edu-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.edu-box {
+    cursor:pointer;
+  flex-basis: 20%;
+  text-align: center;
+  box-shadow: 2px 3px 5px grey;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(233, 226, 218);
+}
+.edu-box:hover {
+  background: #3e8e41;
+  color: white;
+  transition: 0.4s;
+  transform: scale(1.1);
+}
+.edu-box img {
+  width: 100%;
+}
+.edu-box ul li {
+    list-style: none;
+  }
