@@ -103,7 +103,7 @@ div.transbox dl {
         {% if user.is_authenticated %}
 
 		        <a href="/">{{user.username}}</a>
-			    <a href="{% url 'acrew:search' %}">Search</a>
+			    <a href="{% url 'acrew:diseases' %}">Search</a>
                 <a href="{% url 'acrew:contact' %}">Contact Us</a>
                 <a href="{% url 'acrew:about' %}">About Us</a>
                 <a href="{% url 'logout' %}">Logout</a>
@@ -137,7 +137,7 @@ div.transbox dl {
       {% if user.is_authenticated %}
 
 		        <a href="/">{{user.username}}</a>
-			    <a href="{% url 'acrew:search' %}">Search</a>
+			    <a href="{% url 'acrew:diseases' %}">Search</a>
                 <a href="{% url 'acrew:contact' %}">Contact Us</a>
                 <a href="{% url 'acrew:about' %}">About Us</a>
                 <a href="{% url 'logout' %}">Logout</a>
@@ -160,13 +160,13 @@ div.transbox dl {
       </div>
     <div class="transbox">
 
-        <br><dl>&rarr;Clean your hands often. Use soap and water, or an alcohol-based hand rub.</dl>
-        <br><dl> &rarr;Maintain a safe distance from anyone who is coughing or sneezing.</dl>
-        <br><dl>&rarr;Wear a mask when physical distancing is not possible.</dl>
-        <br><dl>&rarr;Don’t touch your eyes, nose or mouth.</dl>
-        <br><dl>&rarr;Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.</dl>
-        <br><dl>&rarr;Stay home if you feel unwell.</dl>
-        <br><dl>&rarr; If you have a fever, cough and difficulty breathing, seek medical attention.</dl>
+        <br><dl>&rarr;Zap your stress. Find the stress-reduction method that works for you and stick with it.".</dl>
+        <br><dl> &rarr;Stop dieting. The key is moderation. Get a mix of lean proteins, healthy fats, smart carbs, and fiber.</dl>
+        <br><dl>&rarr;Do more than cardio.Women need a mix of cardio and resistance or weight-bearing exercise at least three to five times a week to help prevent osteoporosis, heart disease, cancer, and diabetes..</dl>
+        <br><dl>&rarr;Think about fertility..</dl>
+        <br><dl>&rarr;Appreciate birth control. "Birth control gets a bad rap, but not only can it keep you from getting pregnant before you're ready, studies show it can lower the risk of uterine and ovarian cancer as well as regulate your cycle.".</dl>
+        <br><dl>&rarr;See your doctor every year. Make sure you get a Pap test to check for cervical cancer every 3 years if you are 21 or older.</dl>
+        <br><dl>&rarr; Get more sleep. Sleep needs differ, but if you have trouble getting out of bed, tire easily, or have trouble concentrating, you likely aren't getting enough. .</dl>
     </div>
     <section id="footer">
     <h2>
@@ -182,5 +182,19 @@ div.transbox dl {
         <i class="fa fa-2x fa-linkedin"></i></a>
     </div>
   </section>
+  <script>
+      var menu = document.getElementById("menubar");
+      var sidenav = document.getElementById("sidenav");
+      sidenav.style.width = "0px";
+      menu.onclick = function () {
+        if (sidenav.style.width == "0px") {
+          sidenav.style.width = "250px";
+          menu.src = "https://i.ibb.co/mRYdnxH/cross.png";
+        } else {
+          sidenav.style.width = "0px";
+          menu.src = "https://i.ibb.co/k5Dyz1b/download.png";
+        }
+      };
+    </script>
 </body>
 </html>

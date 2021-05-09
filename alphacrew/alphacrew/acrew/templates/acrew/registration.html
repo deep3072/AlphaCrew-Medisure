@@ -9,15 +9,37 @@
 
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
+<style>
+.edu-box {
+    cursor:pointer;
+  flex-basis: 20%;
+  text-align: center;
+  box-shadow: 2px 3px 5px grey;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(233, 226, 218);
+  border-radius:20px;
+}
+.edu-box:hover {
+  background: #3e8e41;
+  color: white;
+  transition: 0.4s;
+  transform: scale(1.1);
+}
 
+.edu-box ul li {
+    list-style: none;
+  }
+</style>
 
 </head>
 <body>
           <div class="container">
               <div class="jumbotron">
                 {% if registered %}
-                    <h1>Thank you for registering!</h1>
-                    <a href="/acrew/user_login/" style="margin:45%;"> <button type="button" class="btn btn-primary">Login</button> </a>
+                    <img src="https://letsgetclear.org/wp-content/uploads/2018/11/Thank-you-for-registering.png" style="width:500px;"></img>
+                   <a href="/acrew/user_login/" class="edu-box" style="text-decoration: none; ">Login </a>
+
                 {% else %}
                     <h1>Register Here</h1>
                     <h3>Get yourself registered here!</h3>

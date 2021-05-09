@@ -16,7 +16,6 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    
     return render(request, "acrew/index.html")
 
 
@@ -100,8 +99,8 @@ def about(request):
 
 
 def exercise(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('index'))
+    # if not request.user.is_authenticated:
+    #     return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/exercise.html')
 
 
