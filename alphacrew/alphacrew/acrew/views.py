@@ -113,80 +113,84 @@ def womenshealth(request):
 
 
 def flu(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/flu.html')
 
 
 def symptoms(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/symptoms.html')
 
 
 def flu(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/flu.html')
 
 
 def cough(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/cough.html')
 
 
 def fever(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/fever.html')
 
 
 def jaundice(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/Jaundice.html')
 
 
 def diabetes(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/diabetes.html')
 
 
 def malaria(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/malaria.html')
 
 
 def bloodpressure(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/bloodpressure.html')
 
 
 def allergies(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/allergies.html')
 
 
 def typhoid(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/typhoid.html')
 
 
 def stomachache(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/stomachache.html')
 
 
 def conjuctivitis(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/conjuctivitis.html')
 
 
 def dengue(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/dengue.html')
-# @login_required
-# def quiz_world(request):
-#     courses = Course.objects.all()
-#     questions = Question.objects.all()
-#     user = str(request.user.username)
-#     if "request.session['seen_status']" != False:
-#         request.session['seen_status'] = False
-#         for i in range(1, 100):
-#             mydict[i, user] = True
-#     params = {'quiz_name': courses, 'question': questions}
-#     return render(request, 'quiz/quiz_world.html', params)
-#
-#
-# @login_required
-# def quizview(request, course_name):
-#     courses = Course.objects.all()
-#     questions = Question.objects.all()
-#     user = str(request.user.username)
-#     params = {'quiz_name': courses, 'question': questions, 'current_quiz': course_name}
-#     for i in courses:
-#         if i.course_name == course_name and mydict[i.id, user] == True:
-#             mydict[i.id, user] = False
-#             return render(request, 'quiz/quiz_view.html', params)
-#     return render(request, 'quiz/quiz_attemped.html', params)
