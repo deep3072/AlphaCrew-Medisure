@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 from acrew import views
+# from acrew.forms import UserForm, UserProfileInfoForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    # path('/',  include('acrew.urls')),
     # url(r'^special/', views.special, name='special'),
     url(r'^acrew/', include('acrew.urls')),
     url(r'^logout/$', views.user_logout, name='logout'),

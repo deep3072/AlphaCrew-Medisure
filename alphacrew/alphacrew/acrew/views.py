@@ -27,6 +27,8 @@ def user_logout(request):
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
     registered = False
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
@@ -84,8 +86,8 @@ def diseases(request):
     return render(request, 'acrew/diseases.html')
 
 def search(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('index'))
+    # if not request.user.is_authenticated:
+    #     return HttpResponseRedirect(reverse('index'))
     response = requests.get('https://api.covid19api.com/summary').json()
     # print(response)
     return render(request, 'acrew/search.html', {'responses': response})
@@ -119,8 +121,8 @@ def flu(request):
 
 
 def symptoms(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('index'))
+    # if not request.user.is_authenticated:
+    #     return HttpResponseRedirect(reverse('index'))
     return render(request, 'acrew/symptoms.html')
 
 
