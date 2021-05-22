@@ -1,0 +1,92 @@
+#contact {
+    background: linear-gradient(160deg,rgb(95, 228, 139),rgb(0, 65, 0) );
+  }
+  .section-info {
+    font-weight: bold;
+    text-align: center;
+  }
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .heading hr {
+    width: 33%;
+    height: 2px;
+    color: black;
+    background-color: black;
+    margin: 10px;
+    border: none;
+  }
+  .section-info h1 {
+    font-size: 50px;
+  }
+  .section-info p {
+    font-size: 25px;
+    color: #3e8e41;
+  }
+  #contact {
+    padding: 80px 50px;
+  }
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .contact-left {
+    flex-basis: 50%;
+  }
+  .contact-left img {
+    width: 80%;
+    background-color: transparent;
+    border-radius: 30px;
+  }
+  .contact-right {
+    flex-basis: 50%;
+  }
+  .contact-right form h2 {
+    margin: 20px;
+  }
+  .contact-right form input {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 23px;
+    border: none;
+    text-decoration: none;
+    font-size: 20px;
+    outline: none;
+  }
+  .contact-right form textarea {
+    width: 60%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: auto;
+    border-radius: 23px;
+    border: none;
+    text-decoration: none;
+    outline: none;
+  }
+  .contact-right form {
+    text-align: center;
+  }
+  .c-btn {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #3e8e41;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 23px;
+  }
+  .c-btn a {
+    text-decoration: none;
+    outline-offset: none;
+    color: white;
+  }
+  .c-btn:hover{
+    background-color: #72ad74;
+  }
+
